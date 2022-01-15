@@ -1,0 +1,13 @@
+kind: DestinationRule
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: voyages
+  namespace: travel-portal
+  labels:
+    kiali_wizard: request_routing
+spec:
+  host: voyages.travel-portal.svc.cluster.local
+  subsets:
+    - labels:
+        version: v1
+      name: v1
